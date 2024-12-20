@@ -1,3 +1,5 @@
+import './index.css'
+
 const HistoryElement = ({item, onDelete}) => (
   <li className="history-element">
     <p className="time">{item.timeAccessed}</p>

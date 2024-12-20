@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import HistoryElement from '../HistoryItem'
+import HistoryElement from '../HistoryElement'
 import './index.css'
 
 const initialHistoryList = [
