@@ -41,13 +41,13 @@
 }
 
 .logo {
-  width: 30px;  
+  width: 30px;
   height: 30px;
-  margin-right: 12px;
+  margin-right: 12px; 
   border-radius: 50%;
 }
 
-.domain-url {
+.domain-title {
   font-size: 16px;
   font-weight: 600;
   color: #333;
@@ -65,7 +65,6 @@
   font-size: 14px;
   transition: background-color 0.2s ease;
 }
-
 
 /* Media Queries for Mobile (<= 768px) */
 @media (max-width: 768px) {
@@ -109,4 +108,16 @@
     width: 100%;
     margin-top: 20px;
   }
+}
+
+@media (min-width: 769px) {
+  .domain {
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+  }
+  .domain-title {
+    flex: 1;
+  }
+  
 }

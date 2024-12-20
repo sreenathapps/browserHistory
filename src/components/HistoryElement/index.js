@@ -5,7 +5,11 @@ const HistoryElement = ({item, onDelete}) => (
     <p className="time">{item.timeAccessed}</p>
     <div className="item">
       <img className="logo" src={item.logoUrl} alt="domain logo" />
-      <p className="domain-url">{item.domainUrl}</p>
+      <div className="domain">
+        <p className="domain-title">{item.title}</p>
+        <p className="domain-url">{item.domainUrl}</p>
+      </div>
+
       <button
         type="button"
         className="delete-btn"
