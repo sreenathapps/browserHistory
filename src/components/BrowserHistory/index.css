@@ -1,0 +1,108 @@
+/* Background Container */
+.bg-container {
+  min-height: 92vh;
+  display: flex;
+  padding-top: 4em;
+  justify-content: center;
+  background-color: #f4f4f4;
+}
+
+/* Header Styles */
+.header {
+  background-color: #3367d6;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.brand {
+  max-width: 300px;
+}
+
+.header-container {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Search Box and Input Styles */
+.search-box {
+  background-color: #2850a7;
+  display: flex;
+  height: 2.5em;
+  border-radius: 25px;
+  align-items: center;
+  padding: 0 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.search-icon {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.search {
+  background-color: transparent;
+  border: none;
+  flex: 1;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.search:focus {
+  outline: none;
+  border: 1px solid #ff9f00;
+}
+
+.app-logo {
+  width: 100%;
+  height: auto;
+  max-width: 180px;
+}
+
+/* History Container Styles */
+.history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-top: 20px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.history-container:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Empty History View */
+.empty-history {
+  font-size: 1.5em;
+  color: #888;
+  margin-top: 50px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-box {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .search {
+    width: 100%;
+  }
+}

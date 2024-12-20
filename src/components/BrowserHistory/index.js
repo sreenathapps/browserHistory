@@ -1,3 +1,5 @@
+import {useState} from 'react'
+import HistoryElement from '../HistoryItem'
 import './index.css'
 
 const initialHistoryList = [
@@ -43,7 +45,6 @@ const initialHistoryList = [
     title: 'GitHub: Where the world builds software · GitHub',
     domainUrl: 'github.com',
   },
-
   {
     id: 6,
     timeAccessed: '02:45 PM',
@@ -58,7 +59,6 @@ const initialHistoryList = [
     title: 'Stack Overflow - Where Developers Learn, Share, & Build Careers',
     domainUrl: 'stackoverflow.com',
   },
-
   {
     id: 8,
     timeAccessed: '09:25 AM',
@@ -75,7 +75,70 @@ const initialHistoryList = [
   },
 ]
 
-// Replace your code here
-const BrowserHistory = () => <div>Hello World</div>
+const BrowserHistory = () => {
+  const [historyList, setHistoryList] = useState(initialHistoryList)
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const onChangeSearchElement = event => {
+    setSearchQuery(event.target.value)
+  }
+
+  const onDeleteHistoryItem = id => {
+    setHistoryList(prevHistoryList =>
+      prevHistoryList.filter(item => item.id !== id),
+    )
+  }
+
+  const filteredHistoryList = historyList.filter(
+    item =>
+      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.domainUrl.toLowerCase().includes(searchQuery.toLowerCase()),
+  )
+
+  return (
+    <div>
+      <header className="header">
+        <div className="header-container">
+          <a href="https://www.google.com" className="brand">
+            <img
+              className="app-logo"
+              src="https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png"
+              alt="app logo"
+            />
+          </a>
+          <div className="search-box">
+            <img
+              className="search-icon"
+              src="https://assets.ccbp.in/frontend/react-js/search-img.png"
+              alt="search"
+            />
+            <input
+              className="search"
+              type="search"
+              value={searchQuery}
+              onChange={onChangeSearchElement}
+              placeholder="Search History"
+            />
+          </div>
+        </div>
+      </header>
+      <div className="bg-container">
+        {filteredHistoryList.length === 0 ? (
+          <p className="empty-history">There is no history to show</p>
+        ) : (
+          <ul className="history-container">
+            {filteredHistoryList.map(eachItem => (
+              <HistoryElement
+                key={eachItem.id}
+                item={eachItem}
+                onDelete={onDeleteHistoryItem}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  )
+}
 
 export default BrowserHistory
