@@ -13,6 +13,7 @@ const HistoryElement = ({item, onDelete}) => (
       <button
         type="button"
         className="delete-btn"
+        data-testid="delete"
         onClick={() => onDelete(item.id)}
       >
         <img
